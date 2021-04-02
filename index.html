@@ -8,20 +8,29 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
   <title>Barcode</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Extended&display=swap" rel="stylesheet">
   <style>
-    @page {
-      size: A4;
-      margin: 0;
+    .barcode {
+      font-family: 'Libre Barcode 39 Extended', cursive;
     }
+    #bgLot { font-size: 12mm; line-height: 80%; }
+    #bgExp { font-size: 12mm; line-height: 80%; }
+    #bgSn { font-size: 8mm; line-height: 80%; }
 
     @media print {
 
       html,
       body {
-        width: 85mm !important;
+        width: 88mm !important;
         height: 62mm !important;
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        width: 90%
       }
 
     }
@@ -63,9 +72,9 @@
     </div>
     <div id="print">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" id="bgLot"></li>
-        <li class="list-group-item" id="bgExp"></li>
-        <li class="list-group-item" id="bgSn"></li>
+        <li class="list-group-item barcode ps-0" id="bgLot"></li>
+        <li class="list-group-item barcode ps-0" id="bgExp"></li>
+        <li class="list-group-item barcode ps-0" id="bgSn"></li>
       </ul>
     </div>
   </div>
@@ -84,9 +93,12 @@
       let exp = document.getElementById("exp").value;
       let sn = document.getElementById("sn").value;
 
-      bgLot.innerHTML = `<img src="https://bwipjs-api.metafloor.com/?bcid=code128&scale=5&includetext&scaleX=4&scaleY=1&text=${lot}">`;
-      bgExp.innerHTML = `<img src="https://bwipjs-api.metafloor.com/?bcid=code128&scale=5&includetext&scaleX=4&scaleY=1&text=${exp}">`;
-      bgSn.innerHTML = `<img src="https://bwipjs-api.metafloor.com/?bcid=code128&scale=5&includetext&scaleX=4&scaleY=1&text=${sn}">`;
+      // bgLot.innerHTML = `<img src="https://bwipjs-api.metafloor.com/?bcid=code128&scale=5&includetext&scaleX=4&scaleY=1&text=${lot}">`;
+      // bgExp.innerHTML = `<img src="https://bwipjs-api.metafloor.com/?bcid=code128&scale=5&includetext&scaleX=4&scaleY=1&text=${exp}">`;
+      // bgSn.innerHTML = `<img src="https://bwipjs-api.metafloor.com/?bcid=code128&scale=5&includetext&scaleX=4&scaleY=1&text=${sn}">`;
+      bgLot.innerHTML = `*${lot}*\n`;
+      bgExp.innerHTML = `*${exp}*\n`;
+      bgSn.innerHTML = `*${sn}*\n`;
 
       setTimeout(() => {
         window.print();
