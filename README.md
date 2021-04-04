@@ -1,4 +1,4 @@
-# Vaccine Barcode
+# Sinovac Vaccine Barcode
 
 ## System Requirement
 
