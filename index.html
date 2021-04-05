@@ -26,7 +26,7 @@
               <h4 class="text-uppercase text-center">Sinovac Vaccine Barcode</h4>
             </div>
             <form action="#" method="post">
-              <input type="hidden" name="csrftoken" value="ea49375f43c7e6a59c77df1e4de562b3f1350124eeb70e5d5124e4ce3b5251c2b4d12e9aaf2a3ddc618c178c8dc4620b">
+
               <div class="mb-3">
                 <label for="emailaddress">Lot No</label>
                 <input id="lot" type="text" name="lot" placeholder="Lot Number" class="form-control" required="" value="J202103001">
@@ -53,7 +53,7 @@
               </div>
 
               <div class="mb-0 text-center">
-                <button class="btn btn-primary btn-lg fs-1 w-50 rounded-pill" type="button" name="submit" onClick="generate(); return false;">Print</button>
+                <button class="btn btn-primary btn-lg fs-1 w-50 rounded-pill" type="button" name="submit" onClick="generate(1); return false;">Print</button>
               </div>
             </form>
           </div>
@@ -66,21 +66,21 @@
     <div class="row">
       <div class="col-3 pt-3">Lot No.</div>
       <div class="col-8">
-        <span class="barcode pntLot d-block" id="pntLot"></span>
+        <span class="barcode d-block" id="pntLot"></span>
         <span class="d-block text-barcode" id="pntLotTxt"></span>
       </div>
     </div>
     <div class="row">
       <div class="col-3 pt-3">S/N</div>
       <div class="col-8">
-        <span class="barcode pntLot d-block" id="pntSn"></span>
+        <span class="barcode d-block" id="pntSn"></span>
         <span class="d-block text-barcode" id="pntSnTxt"></span>
       </div>
     </div>
     <div class="row">
       <div class="col-3 pt-3">Exp</div>
       <div class="col-8">
-        <span class="barcode pntLot d-block" id="pntExp"></span>
+        <span class="barcode d-block" id="pntExp"></span>
         <span class="d-block text-barcode" id="pntExpTxt"></span>
       </div>
     </div>
@@ -95,7 +95,7 @@
   </div>
 
   <script src="node_modules/code-128-encoder/code-128-encoder.min.js"></script>
-  <script src="js/app.min.js?v=1617626193419"></script>
+  <script defer src="js/app.min.js?v=1617626193419"></script>
 
 </body>
 
