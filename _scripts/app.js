@@ -8,9 +8,9 @@ const afterPrint = () => {
   bot.value++;
   console.log(bot.value);
 
-  if (bot.value > 40) {
+  if (bot.value > 40 && ( (bot.value % 40) == 1) ) {
     let box = document.getElementById("box").value++;
-    bot.value = 1;
+    // bot.value = 1;
     console.log(`${box} : ${bot.value}`);
   }
 
