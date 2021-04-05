@@ -1,0 +1,12 @@
+{
+  "name": "barcode",
+  "version": "1.0.0",
+  "description": "print sinovac barcode",
+  "main": "index.js",
+  "repository": "https://github.com/MoreMeng/barcode.git",
+  "author": "Thanikul Sriuthis <moremeng@dv4.biz>",
+  "license": "MIT",
+  "dependencies": {
+    "code-128-encoder": "^3.1.1"
+  }
+}
