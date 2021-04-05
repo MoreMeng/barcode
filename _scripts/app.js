@@ -32,11 +32,11 @@ const generate = () => {
   document.getElementById("pntBox").innerHTML = `${box}`;
   document.getElementById("pntBot").innerHTML = `${bot}`;
 
-  document.getElementById("pntLot2").innerHTML = `${encoder.encode(lot)}`;
-  document.getElementById("pntExp2").innerHTML = `${encoder.encode(exp)}`;
-  document.getElementById("pntSn2").innerHTML = `${encoder.encode(sn)}`;
-  document.getElementById("pntBox2").innerHTML = `${box}`;
-  document.getElementById("pntBot2").innerHTML = `${bot}`;
+  // document.getElementById("pntLot2").innerHTML = `${encoder.encode(lot)}`;
+  // document.getElementById("pntExp2").innerHTML = `${encoder.encode(exp)}`;
+  // document.getElementById("pntSn2").innerHTML = `${encoder.encode(sn)}`;
+  // document.getElementById("pntBox2").innerHTML = `${box}`;
+  // document.getElementById("pntBot2").innerHTML = `${bot}`;
 
 
 
