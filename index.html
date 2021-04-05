@@ -10,7 +10,7 @@
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   <title>Sinovac Vaccine Barcode</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.min.css">
 </head>
 
@@ -36,7 +36,7 @@
               </div>
               <div class="mb-3">
                 <label for="emailaddress">Serial</label>
-                <input id="sn" type="text" name="sn" placeholder="Lot Number" class="form-control" required="" value="121345678901234567890">
+                <input id="sn" type="text" name="sn" placeholder="Lot Number" class="form-control" required="" value="81901420028605830002">
               </div>
               <div class="row">
 
@@ -60,9 +60,46 @@
       </div>
     </div>
   </div>
+
   <div id="print">
-    <ul class="list-group list-group-flush pt-5 ms-3">
-      <li class="list-group-item ps-0"><span class="d-inline-block w-25">Lot No.</span><span class="barcode pntLot" id="pntLot"></span></li>
+    <div class="row">
+      <div class="col-3 pt-3">Lot No.</div>
+      <div class="col-8">
+        <span class="barcode pntLot d-block" id="pntLot"></span>
+        <span class="d-block text-barcode" id="pntLotTxt"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 pt-3">S/N</div>
+      <div class="col-8">
+        <span class="barcode pntLot d-block" id="pntSn"></span>
+        <span class="d-block text-barcode" id="pntSnTxt"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 pt-3">Exp</div>
+      <div class="col-8">
+        <span class="barcode pntLot d-block" id="pntExp"></span>
+        <span class="d-block text-barcode" id="pntExpTxt"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-8 row">
+        <div class="col">กล่องที่ <span id="pntBox"></span></div>
+        <div class="col">ขวดที่ <span id="pntBot"></span></div>
+      </div>
+    </div>
+
+    <!-- <ul class="list-group list-group-flush pt-5 ms-3">
+      <li class="list-group-item ps-0 row">
+        <div class="d-block w-25">Lot No.</div>
+        <div class="d-block w-75">
+          <span class="barcode pntLot" id="pntLot"></span>
+          <span id="pntLotTxt"></span>
+
+        </div>
+      </li>
       <li class="list-group-item ps-0"><span class="d-inline-block w-25">S/N</span><span class="barcode pntSn" id="pntSn"></span></li>
       <li class="list-group-item ps-0"><span class="d-inline-block w-25">Exp</span><span class="barcode pntExp" id="pntExp"></span></li>
       <li class="list-group-item ps-0 d-flex">
@@ -70,7 +107,7 @@
         <div class="d-inline-block col">กล่องที่ <span id="pntBox"></span></div>
         <div class="d-inline-block col">ขวดที่ <span id="pntBot"></span></div>
       </li>
-    </ul>
+    </ul> -->
     <!-- <ul class="list-group list-group-flush pt-5 ms-3">
       <li class="list-group-item ps-0"><span class="d-inline-block w-25">Lot No.</span><span class="barcode pntLot" id="pntLot2"></span></li>
       <li class="list-group-item ps-0"><span class="d-inline-block w-25">S/N</span><span class="barcode pntSn" id="pntSn2"></span></li>

@@ -1,23 +1,13 @@
 // out: ../css/main.min.css, compress: true, sourceMap: false, autoprefixer: last 5 versions, groupmedia: true
 
 .barcode {
-  font-family: 'Libre Barcode 128 Text', cursive;
-  white-space: pre;
-}
-
-.pntLot {
+  font-family: 'Libre Barcode 128', cursive;
   font-size: 12mm;
-  line-height: 80%;
+  height: 10mm;
 }
 
-.pntExp {
-  font-size: 12mm;
-  line-height: 80%;
-}
-
-.pntSn {
-  font-size: 10mm;
-  line-height: 80%;
+.text-barcode {
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
 }
 
 input {

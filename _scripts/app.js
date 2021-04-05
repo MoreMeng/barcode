@@ -27,8 +27,11 @@ const generate = () => {
   let bot = document.getElementById("bot").value;
 
   document.getElementById("pntLot").innerHTML = `${encoder.encode(lot)}`;
-  document.getElementById("pntExp").innerHTML = `${encoder.encode(exp)}`;
+  document.getElementById("pntLotTxt").innerHTML = `${lot}`;
   document.getElementById("pntSn").innerHTML = `${encoder.encode(sn)}`;
+  document.getElementById("pntSnTxt").innerHTML = `${sn}`;
+  document.getElementById("pntExp").innerHTML = `${encoder.encode(exp)}`;
+  document.getElementById("pntExpTxt").innerHTML = `${exp}`;
   document.getElementById("pntBox").innerHTML = `${box}`;
   document.getElementById("pntBot").innerHTML = `${bot}`;
 
