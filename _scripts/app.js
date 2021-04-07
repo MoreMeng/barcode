@@ -8,7 +8,7 @@ const afterPrint = () => {
   bot.value++;
   console.log(bot.value);
 
-  if (bot.value > 40 && ( (bot.value % 40) == 1) ) {
+  if (bot.value > 40 && ((bot.value % 40) == 1)) {
     let box = document.getElementById("box").value++;
     // bot.value = 1;
     console.log(`${box} : ${bot.value}`);
@@ -16,7 +16,7 @@ const afterPrint = () => {
 
 };
 
-const generate = () => {
+const generate = (print) => {
 
   let encoder = new Code128Generator();
 
@@ -53,14 +53,14 @@ const generate = () => {
   // listGroup.after(cln);
 
   // listGroup.removeChild(cln);
-
-  window.print();
+  if (print)
+    window.print();
 
 }
 
 (function () {
   // window.onbeforeprint = beforePrint;
   window.onafterprint = afterPrint;
-  // generate();
+  generate(0);
   // document.getElementById('print').style.display = 'block';
 }());
