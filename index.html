@@ -26,7 +26,7 @@
             <div class="text-center m-auto">
               <h4 class="text-uppercase text-center">Sinovac Vaccine Barcode <span class="badge rounded-pill bg-primary">×40</span></h4>
             </div>
-            <form action="#" method="post">
+            <form action="#" method="post" onsubmit="generate(1); return false;">
 
               <div class="mb-3">
                 <label for="lot">Lot Number</label>
@@ -54,7 +54,8 @@
               </div>
 
               <div class="mb-0 text-center">
-                <button class="btn btn-primary btn-lg fs-1 w-50 rounded-pill" type="button" name="submit" onClick="generate(1); return false;">Print</button>
+                <button class="btn btn-primary btn-lg fs-1 rounded-pill w-50" type="submit" name="submit"> Print </button>
+                <!-- <button class="btn btn-outline-primary btn-lg fs-1 rounded-pill" type="submit" name="submit"> Print x2</button> -->
               </div>
             </form>
           </div>
@@ -67,29 +68,60 @@
     <div class="row">
       <div class="col-3 pt-3">Lot No.</div>
       <div class="col-8">
-        <span class="barcode d-block" id="pntLot"></span>
-        <span class="d-block text-barcode" id="pntLotTxt"></span>
+        <span class="barcode d-block pntLot"></span>
+        <span class="d-block text-barcode pntLotTxt"></span>
       </div>
     </div>
     <div class="row">
       <div class="col-3 pt-3">S/N</div>
       <div class="col-8">
-        <span class="barcode d-block" id="pntSn"></span>
-        <span class="d-block text-barcode" id="pntSnTxt"></span>
+        <span class="barcode d-block pntSn"></span>
+        <span class="d-block text-barcode pntSnTxt"></span>
       </div>
     </div>
     <div class="row">
       <div class="col-3 pt-3">Exp</div>
       <div class="col-8">
-        <span class="barcode d-block" id="pntExp"></span>
-        <span class="d-block text-barcode" id="pntExpTxt"></span>
+        <span class="barcode d-block pntExp"></span>
+        <span class="d-block text-barcode pntExpTxt"></span>
       </div>
     </div>
     <div class="row">
       <div class="col-3"></div>
       <div class="col-8 row">
-        <div class="col">กล่องที่ <span id="pntBox"></span></div>
-        <div class="col">ขวดที่ <span id="pntBot"></span></div>
+        <div class="col">กล่องที่ <span class="pntBox"></span></div>
+        <div class="col">ขวดที่ <span class="pntBot"></span></div>
+      </div>
+    </div>
+
+  </div>
+  <div id="print2" class="pt-3 mb-0 print-page-break">
+    <div class="row">
+      <div class="col-3 pt-3">Lot No.</div>
+      <div class="col-8">
+        <span class="barcode d-block pntLot"></span>
+        <span class="d-block text-barcode pntLotTxt"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 pt-3">S/N</div>
+      <div class="col-8">
+        <span class="barcode d-block pntSn"></span>
+        <span class="d-block text-barcode pntSnTxt"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3 pt-3">Exp</div>
+      <div class="col-8">
+        <span class="barcode d-block pntExp"></span>
+        <span class="d-block text-barcode pntExpTxt"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-8 row">
+        <div class="col">กล่องที่ <span class="pntBox"></span></div>
+        <div class="col">ขวดที่ <span class="pntBot"></span></div>
       </div>
     </div>
 

@@ -34,14 +34,23 @@ const generate = (print) => {
 
   let botMod = bot % 40;
 
-  document.getElementById("pntLot").innerHTML = `${lotBar}`;
-  document.getElementById("pntLotTxt").innerHTML = `${lot}`;
-  document.getElementById("pntSn").innerHTML = `${snBar}`;
-  document.getElementById("pntSnTxt").innerHTML = `${sn}`;
-  document.getElementById("pntExp").innerHTML = `${expBar}`;
-  document.getElementById("pntExpTxt").innerHTML = `${exp}`;
-  document.getElementById("pntBox").innerHTML = `${box}`;
-  document.getElementById("pntBot").innerHTML = `${bot}`;
+  document.querySelector("#print .pntLot").innerHTML = `${lotBar}`;
+  document.querySelector("#print .pntLotTxt").innerHTML = `${lot}`;
+  document.querySelector("#print .pntSn").innerHTML = `${snBar}`;
+  document.querySelector("#print .pntSnTxt").innerHTML = `${sn}`;
+  document.querySelector("#print .pntExp").innerHTML = `${expBar}`;
+  document.querySelector("#print .pntExpTxt").innerHTML = `${exp}`;
+  document.querySelector("#print .pntBox").innerHTML = `${box}`;
+  document.querySelector("#print .pntBot").innerHTML = `${bot}`;
+
+  document.querySelector("#print2 .pntLot").innerHTML = `${lotBar}`;
+  document.querySelector("#print2 .pntLotTxt").innerHTML = `${lot}`;
+  document.querySelector("#print2 .pntSn").innerHTML = `${snBar}`;
+  document.querySelector("#print2 .pntSnTxt").innerHTML = `${sn}`;
+  document.querySelector("#print2 .pntExp").innerHTML = `${expBar}`;
+  document.querySelector("#print2 .pntExpTxt").innerHTML = `${exp}`;
+  document.querySelector("#print2 .pntBox").innerHTML = `${box}`;
+  document.querySelector("#print2 .pntBot").innerHTML = `${bot}`;
 
   console.log(`bot = ${bot} Mod = ${botMod}`);
 
@@ -52,7 +61,9 @@ const generate = (print) => {
 
   if (botMod == 1) {
 
-    for (let i = ++bot; i < (bot+39) ; i++) {
+    for (let i = ++bot; i < (bot+9) ; i++) {
+
+      html += `<div class="pt-3 mb-0 print-page-break"><div class="row"><div class="col-3 pt-3">Lot No.</div><div class="col-8"><span class="barcode d-block">${lotBar}</span><span class="d-block text-barcode">${lot}</span></div></div><div class="row"><div class="col-3 pt-3">S/N</div><div class="col-8"><span class="barcode d-block">${snBar}</span><span class="d-block text-barcode">${sn}</span></div></div><div class="row"><div class="col-3 pt-3">Exp</div><div class="col-8"><span class="barcode d-block">${expBar}</span><span class="d-block text-barcode">${exp}</span></div></div><div class="row"><div class="col-3"></div><div class="col-8 row"><div class="col">กล่องที่ <span>${box}</span></div><div class="col">ขวดที่ <span>${i}</span></div></div></div></div>`;
 
       html += `<div class="pt-3 mb-0 print-page-break"><div class="row"><div class="col-3 pt-3">Lot No.</div><div class="col-8"><span class="barcode d-block">${lotBar}</span><span class="d-block text-barcode">${lot}</span></div></div><div class="row"><div class="col-3 pt-3">S/N</div><div class="col-8"><span class="barcode d-block">${snBar}</span><span class="d-block text-barcode">${sn}</span></div></div><div class="row"><div class="col-3 pt-3">Exp</div><div class="col-8"><span class="barcode d-block">${expBar}</span><span class="d-block text-barcode">${exp}</span></div></div><div class="row"><div class="col-3"></div><div class="col-8 row"><div class="col">กล่องที่ <span>${box}</span></div><div class="col">ขวดที่ <span>${i}</span></div></div></div></div>`;
     }
@@ -64,12 +75,12 @@ const generate = (print) => {
 
 }
 
-const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
 
 (function () {
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
   // window.onbeforeprint = beforePrint;
   window.onafterprint = afterPrint;
   generate(0);
