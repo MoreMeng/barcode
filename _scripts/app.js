@@ -16,7 +16,7 @@ const afterPrint = () => {
 
 };
 
-const generate = (print) => {
+const generate = (print, double = true) => {
 
   let encoder = new Code128Generator();
 
@@ -43,14 +43,21 @@ const generate = (print) => {
   document.querySelector("#print .pntBox").innerHTML = `${box}`;
   document.querySelector("#print .pntBot").innerHTML = `${bot}`;
 
-  document.querySelector("#print2 .pntLot").innerHTML = `${lotBar}`;
-  document.querySelector("#print2 .pntLotTxt").innerHTML = `${lot}`;
-  document.querySelector("#print2 .pntSn").innerHTML = `${snBar}`;
-  document.querySelector("#print2 .pntSnTxt").innerHTML = `${sn}`;
-  document.querySelector("#print2 .pntExp").innerHTML = `${expBar}`;
-  document.querySelector("#print2 .pntExpTxt").innerHTML = `${exp}`;
-  document.querySelector("#print2 .pntBox").innerHTML = `${box}`;
-  document.querySelector("#print2 .pntBot").innerHTML = `${bot}`;
+  if (double) {
+    document.getElementById('print2').style.display = "block";
+
+    document.querySelector("#print2 .pntLot").innerHTML = `${lotBar}`;
+    document.querySelector("#print2 .pntLotTxt").innerHTML = `${lot}`;
+    document.querySelector("#print2 .pntSn").innerHTML = `${snBar}`;
+    document.querySelector("#print2 .pntSnTxt").innerHTML = `${sn}`;
+    document.querySelector("#print2 .pntExp").innerHTML = `${expBar}`;
+    document.querySelector("#print2 .pntExpTxt").innerHTML = `${exp}`;
+    document.querySelector("#print2 .pntBox").innerHTML = `${box}`;
+    document.querySelector("#print2 .pntBot").innerHTML = `${bot}`;
+
+  } else {
+    document.getElementById('print2').style.display = "none";
+  }
 
   console.log(`bot = ${bot} Mod = ${botMod}`);
 
@@ -61,11 +68,12 @@ const generate = (print) => {
 
   if (botMod == 1) {
 
-    for (let i = ++bot; i < (bot+9) ; i++) {
+    for (let i = ++bot; i < (bot + 9); i++) {
 
       html += `<div class="pt-3 mb-0 print-page-break"><div class="row"><div class="col-3 pt-3">Lot No.</div><div class="col-8"><span class="barcode d-block">${lotBar}</span><span class="d-block text-barcode">${lot}</span></div></div><div class="row"><div class="col-3 pt-3">S/N</div><div class="col-8"><span class="barcode d-block">${snBar}</span><span class="d-block text-barcode">${sn}</span></div></div><div class="row"><div class="col-3 pt-3">Exp</div><div class="col-8"><span class="barcode d-block">${expBar}</span><span class="d-block text-barcode">${exp}</span></div></div><div class="row"><div class="col-3"></div><div class="col-8 row"><div class="col">กล่องที่ <span>${box}</span></div><div class="col">ขวดที่ <span>${i}</span></div></div></div></div>`;
 
-      html += `<div class="pt-3 mb-0 print-page-break"><div class="row"><div class="col-3 pt-3">Lot No.</div><div class="col-8"><span class="barcode d-block">${lotBar}</span><span class="d-block text-barcode">${lot}</span></div></div><div class="row"><div class="col-3 pt-3">S/N</div><div class="col-8"><span class="barcode d-block">${snBar}</span><span class="d-block text-barcode">${sn}</span></div></div><div class="row"><div class="col-3 pt-3">Exp</div><div class="col-8"><span class="barcode d-block">${expBar}</span><span class="d-block text-barcode">${exp}</span></div></div><div class="row"><div class="col-3"></div><div class="col-8 row"><div class="col">กล่องที่ <span>${box}</span></div><div class="col">ขวดที่ <span>${i}</span></div></div></div></div>`;
+      if (double)
+        html += `<div class="pt-3 mb-0 print-page-break"><div class="row"><div class="col-3 pt-3">Lot No.</div><div class="col-8"><span class="barcode d-block">${lotBar}</span><span class="d-block text-barcode">${lot}</span></div></div><div class="row"><div class="col-3 pt-3">S/N</div><div class="col-8"><span class="barcode d-block">${snBar}</span><span class="d-block text-barcode">${sn}</span></div></div><div class="row"><div class="col-3 pt-3">Exp</div><div class="col-8"><span class="barcode d-block">${expBar}</span><span class="d-block text-barcode">${exp}</span></div></div><div class="row"><div class="col-3"></div><div class="col-8 row"><div class="col">กล่องที่ <span>${box}</span></div><div class="col">ขวดที่ <span>${i}</span></div></div></div></div>`;
     }
     clone.innerHTML = html;
   }
@@ -83,6 +91,6 @@ const generate = (print) => {
   })
   // window.onbeforeprint = beforePrint;
   window.onafterprint = afterPrint;
-  generate(0);
+  generate(0, true);
   // document.getElementById('print').style.display = 'block';
 }());
