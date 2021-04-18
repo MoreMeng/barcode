@@ -68,7 +68,7 @@ const generate = (print, double = true) => {
 
   if (botMod == 1) {
 
-    for (let i = ++bot; i < (bot + 9); i++) {
+    for (let i = ++bot; i < (bot + 39); i++) {
 
       html += `<div class="pt-3 mb-0 print-page-break"><div class="row"><div class="col-3 pt-3">Lot No.</div><div class="col-8"><span class="barcode d-block">${lotBar}</span><span class="d-block text-barcode">${lot}</span></div></div><div class="row"><div class="col-3 pt-3">S/N</div><div class="col-8"><span class="barcode d-block">${snBar}</span><span class="d-block text-barcode">${sn}</span></div></div><div class="row"><div class="col-3 pt-3">Exp</div><div class="col-8"><span class="barcode d-block">${expBar}</span><span class="d-block text-barcode">${exp}</span></div></div><div class="row"><div class="col-3"></div><div class="col-8 row"><div class="col">กล่องที่ <span>${box}</span></div><div class="col">ขวดที่ <span>${i}</span></div></div></div></div>`;
 
