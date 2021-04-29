@@ -6,7 +6,7 @@ const afterPrint = () => {
   console.log('Functionality to run after printing');
   let bot = document.getElementById("bot");
   bot.value++;
-  console.log(bot.value);
+  // console.log(bot.value);
 
   if (bot.value > 40 && ((bot.value % 40) == 1)) {
     let box = document.getElementById("box").value++;
@@ -16,51 +16,81 @@ const afterPrint = () => {
 
 };
 
-const generate = (print) => {
+const generate = (print, double = true) => {
 
   let encoder = new Code128Generator();
 
   let lot = document.getElementById("lot").value;
-  let exp = document.getElementById("exp").value;
+  let lotBar = encoder.encode(lot);
+
   let sn = document.getElementById("sn").value;
+  let snBar = encoder.encode(sn);
+
+  let exp = document.getElementById("exp").value;
+  let expBar = encoder.encode(exp)
+
   let box = document.getElementById("box").value;
   let bot = document.getElementById("bot").value;
 
-  document.getElementById("pntLot").innerHTML = `${encoder.encode(lot)}`;
-  document.getElementById("pntLotTxt").innerHTML = `${lot}`;
-  document.getElementById("pntSn").innerHTML = `${encoder.encode(sn)}`;
-  document.getElementById("pntSnTxt").innerHTML = `${sn}`;
-  document.getElementById("pntExp").innerHTML = `${encoder.encode(exp)}`;
-  document.getElementById("pntExpTxt").innerHTML = `${exp}`;
-  document.getElementById("pntBox").innerHTML = `${box}`;
-  document.getElementById("pntBot").innerHTML = `${bot}`;
+  let botMod = bot % 40;
 
-  // document.getElementById("pntLot2").innerHTML = `${encoder.encode(lot)}`;
-  // document.getElementById("pntExp2").innerHTML = `${encoder.encode(exp)}`;
-  // document.getElementById("pntSn2").innerHTML = `${encoder.encode(sn)}`;
-  // document.getElementById("pntBox2").innerHTML = `${box}`;
-  // document.getElementById("pntBot2").innerHTML = `${bot}`;
+  document.querySelector("#print .pntLot").innerHTML = `${lotBar}`;
+  document.querySelector("#print .pntLotTxt").innerHTML = `${lot}`;
+  document.querySelector("#print .pntSn").innerHTML = `${snBar}`;
+  document.querySelector("#print .pntSnTxt").innerHTML = `${sn}`;
+  document.querySelector("#print .pntExp").innerHTML = `${expBar}`;
+  document.querySelector("#print .pntExpTxt").innerHTML = `${exp}`;
+  document.querySelector("#print .pntBox").innerHTML = `${box}`;
+  document.querySelector("#print .pntBot").innerHTML = `${bot}`;
 
+  if (double) {
+    document.getElementById('print2').style.display = "block";
 
+    document.querySelector("#print2 .pntLot").innerHTML = `${lotBar}`;
+    document.querySelector("#print2 .pntLotTxt").innerHTML = `${lot}`;
+    document.querySelector("#print2 .pntSn").innerHTML = `${snBar}`;
+    document.querySelector("#print2 .pntSnTxt").innerHTML = `${sn}`;
+    document.querySelector("#print2 .pntExp").innerHTML = `${expBar}`;
+    document.querySelector("#print2 .pntExpTxt").innerHTML = `${exp}`;
+    document.querySelector("#print2 .pntBox").innerHTML = `${box}`;
+    document.querySelector("#print2 .pntBot").innerHTML = `${bot}`;
 
-  // const listGroup = document.querySelector('.list-group');
-  // let cln = listGroup.cloneNode(true);
-  // listGroup.replaceChild(cln, listGroup.childNodes[0]);
+  } else {
+    document.getElementById('print2').style.display = "none";
+  }
 
-  // var item = document.getElementById("myList").childNodes[0];
+  console.log(`bot = ${bot} Mod = ${botMod}`);
 
-  // document.getElementById("print").append(cln);
-  // listGroup.after(cln);
+  let clone = document.getElementById('clone');
+  let html = '';
 
-  // listGroup.removeChild(cln);
+  clone.innerHTML = '';
+
+  if (botMod == 1) {
+
+    for (let i = ++bot; i < (bot + 39); i++) {
+
+      html += `<div class="pt-3 mb-0 print-page-break"><div class="row"><div class="col-3 pt-3">Lot No.</div><div class="col-8"><span class="barcode d-block">${lotBar}</span><span class="d-block text-barcode">${lot}</span></div></div><div class="row"><div class="col-3 pt-3">S/N</div><div class="col-8"><span class="barcode d-block">${snBar}</span><span class="d-block text-barcode">${sn}</span></div></div><div class="row"><div class="col-3 pt-3">Exp</div><div class="col-8"><span class="barcode d-block">${expBar}</span><span class="d-block text-barcode">${exp}</span></div></div><div class="row"><div class="col-3"></div><div class="col-8 row"><div class="col">กล่องที่ <span>${box}</span></div><div class="col">ขวดที่ <span>${i}</span></div></div></div></div>`;
+
+      if (double)
+        html += `<div class="pt-3 mb-0 print-page-break"><div class="row"><div class="col-3 pt-3">Lot No.</div><div class="col-8"><span class="barcode d-block">${lotBar}</span><span class="d-block text-barcode">${lot}</span></div></div><div class="row"><div class="col-3 pt-3">S/N</div><div class="col-8"><span class="barcode d-block">${snBar}</span><span class="d-block text-barcode">${sn}</span></div></div><div class="row"><div class="col-3 pt-3">Exp</div><div class="col-8"><span class="barcode d-block">${expBar}</span><span class="d-block text-barcode">${exp}</span></div></div><div class="row"><div class="col-3"></div><div class="col-8 row"><div class="col">กล่องที่ <span>${box}</span></div><div class="col">ขวดที่ <span>${i}</span></div></div></div></div>`;
+    }
+    clone.innerHTML = html;
+  }
+
   if (print)
     window.print();
 
 }
 
+
 (function () {
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
   // window.onbeforeprint = beforePrint;
   window.onafterprint = afterPrint;
-  generate(0);
+  generate(0, true);
   // document.getElementById('print').style.display = 'block';
 }());

@@ -1,6 +1,6 @@
 {
   "name": "barcode",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "print sinovac barcode",
   "main": "index.js",
   "repository": "https://github.com/MoreMeng/barcode.git",
