@@ -24,7 +24,7 @@ const generate = (print, double = true) => {
   let lotBar = encoder.encode(lot);
 
   let sn = document.getElementById("sn").value;
-  let snBar = encoder.encode(sn);
+  let snBar = encoder.encode(String(sn));
 
   let exp = document.getElementById("exp").value;
   let expBar = encoder.encode(exp)
@@ -34,26 +34,26 @@ const generate = (print, double = true) => {
 
   let botMod = bot % 40;
 
-  document.querySelector("#print .pntLot").innerHTML = `${lotBar}`;
-  document.querySelector("#print .pntLotTxt").innerHTML = `${lot}`;
-  document.querySelector("#print .pntSn").innerHTML = `${snBar}`;
-  document.querySelector("#print .pntSnTxt").innerHTML = `${sn}`;
-  document.querySelector("#print .pntExp").innerHTML = `${expBar}`;
-  document.querySelector("#print .pntExpTxt").innerHTML = `${exp}`;
-  document.querySelector("#print .pntBox").innerHTML = `${box}`;
-  document.querySelector("#print .pntBot").innerHTML = `${bot}`;
+  document.querySelector("#print .pntLot").innerText  = `${lotBar}`;
+  document.querySelector("#print .pntLotTxt").innerText  = `${lot}`;
+  document.querySelector("#print .pntSn").innerText  = `${snBar}`;
+  document.querySelector("#print .pntSnTxt").innerText  = `${sn}`;
+  document.querySelector("#print .pntExp").innerText  = `${expBar}`;
+  document.querySelector("#print .pntExpTxt").innerText  = `${exp}`;
+  document.querySelector("#print .pntBox").innerText  = `${box}`;
+  document.querySelector("#print .pntBot").innerText  = `${bot}`;
 
   if (double) {
     document.getElementById('print2').style.display = "block";
 
-    document.querySelector("#print2 .pntLot").innerHTML = `${lotBar}`;
-    document.querySelector("#print2 .pntLotTxt").innerHTML = `${lot}`;
-    document.querySelector("#print2 .pntSn").innerHTML = `${snBar}`;
-    document.querySelector("#print2 .pntSnTxt").innerHTML = `${sn}`;
-    document.querySelector("#print2 .pntExp").innerHTML = `${expBar}`;
-    document.querySelector("#print2 .pntExpTxt").innerHTML = `${exp}`;
-    document.querySelector("#print2 .pntBox").innerHTML = `${box}`;
-    document.querySelector("#print2 .pntBot").innerHTML = `${bot}`;
+    document.querySelector("#print2 .pntLot").innerText  = `${lotBar}`;
+    document.querySelector("#print2 .pntLotTxt").innerText  = `${lot}`;
+    document.querySelector("#print2 .pntSn").innerText  = `${snBar}`;
+    document.querySelector("#print2 .pntSnTxt").innerText  = `${sn}`;
+    document.querySelector("#print2 .pntExp").innerText  = `${expBar}`;
+    document.querySelector("#print2 .pntExpTxt").innerText  = `${exp}`;
+    document.querySelector("#print2 .pntBox").innerText  = `${box}`;
+    document.querySelector("#print2 .pntBot").innerText  = `${bot}`;
 
   } else {
     document.getElementById('print2').style.display = "none";
@@ -64,7 +64,7 @@ const generate = (print, double = true) => {
   let clone = document.getElementById('clone');
   let html = '';
 
-  clone.innerHTML = '';
+  clone.innerText = '';
 
   if (botMod == 1) {
 
