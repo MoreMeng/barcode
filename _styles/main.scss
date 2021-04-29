@@ -1,5 +1,7 @@
 // out: ../css/main.min.css, compress: true, sourceMap: false, autoprefixer: last 5 versions, groupmedia: true
 
+$base-font: 'Cascadia Code', Consolas, 'Courier New', monospace;
+
 .barcode {
   font-family: 'Libre Barcode 128', cursive;
   font-size: 13mm;
@@ -7,12 +9,25 @@
 }
 
 .text-barcode {
-  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-family: $base-font;
 }
 
 input {
-  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-family: $base-font;
   font-size: 2em !important;
+  border-radius: 40px !important;
+  text-align: center;
+}
+
+label {
+  font-family: $base-font;
+  padding-left: 30px;
+}
+
+@media screen {
+  body {
+    background-color: #212529;
+  }
 }
 
 @media print {
